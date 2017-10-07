@@ -131,6 +131,7 @@ clean		:
 					@$(RM) $(OBJS_LIB)
 
 fclean		:
+					@$(RM) ./libft/libft.a
 					@$(ECHO) "\033[31m[~~~~~~Supression des .o //libftprintf~~~~~~]\n\033[0m"
 					@$(RM) $(OBJS_LIB)
 					@$(ECHO) "\033[31m[~~~~Supression de libftprintf.a~~~~]\n\033[0m"

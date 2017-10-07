@@ -6,7 +6,7 @@
 /*   By: yguzman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/04 15:24:31 by yguzman           #+#    #+#             */
-/*   Updated: 2017/10/06 19:45:48 by yguzman          ###   ########.fr       */
+/*   Updated: 2017/10/06 19:28:18 by yguzman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int				event_c(t_dt *dt, char *string, int len)
 	{
 		if (dt->tab_f['-'] == 1)
 		{
-			ft_putchar(string[0]);
-			ft_putstr(string + 1);
-			len = ft_strlen(string + 1);
+			ft_putchar(0);
+			len = ft_strlen(string);
+			ft_putstr(string);
 			++len;
 		}
 		else

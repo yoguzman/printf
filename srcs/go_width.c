@@ -6,33 +6,13 @@
 /*   By: yguzman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 15:13:52 by yguzman           #+#    #+#             */
-/*   Updated: 2017/10/06 19:45:08 by yguzman          ###   ########.fr       */
+/*   Updated: 2017/10/06 19:34:20 by yguzman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 #include "printf.h"
-
-char			*go_width_neg(char *string, t_dt *dt)
-{
-	char		*buff;
-	char		*buff_other;
-	int			len;
-
-	len = dt->width - ft_strlen(string);
-	if (dt->conv == 'c' && dt->cz == 0)
-		len = len - 1;
-	if ((buff_other = malloc(sizeof(char) * (len + 1))) == NULL)
-		return (NULL);
-	ft_memset(buff_other, ' ', len);
-	buff_other[len] = 0;
-	if ((buff = ft_strjoin(string, buff_other)) == NULL)
-		return (NULL);
-	free(string);
-	free(buff_other);
-	return (buff);
-}
 
 char			*go_width_zero(char *string, t_dt *dt)
 {
@@ -59,12 +39,36 @@ char			*string_debut_zero(char *string, t_dt *dt)
 	char		*buff;
 	int			len;
 
-	len = dt->width - (ft_strlen(string) + 1);
-	if ((buff = malloc(sizeof(char) * (len + 2))) == NULL)
+	buff = NULL;
+	len = dt->width - ft_strlen(string);
+	len -= 1;
+	if ((buff = malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
-	ft_memset(buff, ' ', len + 1);
-	buff[len + 1] = 0;
-	buff[0] = 0;
+	ft_memset(buff, ' ', len);
+	buff[len] = 0;
+	return (buff);
+
+}
+
+char			*go_width_neg(char *string, t_dt *dt)
+{
+	char		*buff;
+	char		*buff_other;
+	int			len;
+
+	if (dt->conv == 'c' && dt->cz == 0 && dt->tab_f['-'])
+		return (string_debut_zero(string, dt));
+	len = dt->width - ft_strlen(string);
+	if (dt->conv == 'c' && dt->cz == 0)
+		len = len - 1;
+	if ((buff_other = malloc(sizeof(char) * (len + 1))) == NULL)
+		return (NULL);
+	ft_memset(buff_other, ' ', len);
+	buff_other[len] = 0;
+	if ((buff = ft_strjoin(string, buff_other)) == NULL)
+		return (NULL);
+	free(string);
+	free(buff_other);
 	return (buff);
 }
 
@@ -77,8 +81,6 @@ char			*go_width_space(char *string, t_dt *dt)
 	len = dt->width - ft_strlen(string);
 	if (dt->conv == 'c' && dt->cz == 0)
 		len = len - 1;
-	else if (dt->conv == 'c' && dt->cz == 0 && dt->tab_f['-'] == 1)
-		return (string_debut_zero(string, dt));
 	if ((buff_other = malloc(sizeof(char) * (len + 1))) == NULL)
 		return (NULL);
 	ft_memset(buff_other, ' ', len);

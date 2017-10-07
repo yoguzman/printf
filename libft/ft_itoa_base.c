@@ -81,6 +81,7 @@ char						*ft_itoa_base(long long int value, char *base)
 	}
 	if ((buff = malloc(sizeof(char) * (len_buff + 1))) == NULL)
 		return (NULL);
+	ft_memset(buff, 0, len_buff + 1);
 	put_neg(buff, neg, len_buff);
 	fill_buff(buff, base, value, div);
 	return (buff);
