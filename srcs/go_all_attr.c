@@ -6,7 +6,7 @@
 /*   By: yguzman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 14:50:37 by yguzman           #+#    #+#             */
-/*   Updated: 2017/10/06 19:09:17 by yguzman          ###   ########.fr       */
+/*   Updated: 2017/10/09 12:56:50 by yguzman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char				*go_attr_sharp(char *string, t_dt *dt)
 	if (string == NULL)
 		return (NULL);
 	buff = NULL;
-
 	if ((!(string[0]) || (ft_isdigitnozero(string) && string[0] != '0')) &&
 			(dt->conv == 'o' || dt->conv == 'O'))
 	{

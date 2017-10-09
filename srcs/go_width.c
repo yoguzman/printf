@@ -6,7 +6,7 @@
 /*   By: yguzman <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 15:13:52 by yguzman           #+#    #+#             */
-/*   Updated: 2017/10/06 19:34:20 by yguzman          ###   ########.fr       */
+/*   Updated: 2017/10/09 12:57:29 by yguzman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ char			*string_debut_zero(char *string, t_dt *dt)
 	ft_memset(buff, ' ', len);
 	buff[len] = 0;
 	return (buff);
-
 }
 
 char			*go_width_neg(char *string, t_dt *dt)
